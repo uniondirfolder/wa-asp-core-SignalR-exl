@@ -3,17 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wa-asp-core-SignalR-exl", "wa-asp-core-SignalR-exl\wa-asp-core-SignalR-exl.csproj", "{E448A866-78FD-45E0-AC08-3DCCB1512BA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wa-asp-core-SignalR-exl", "wa-asp-core-SignalR-exl\wa-asp-core-SignalR-exl.csproj", "{E448A866-78FD-45E0-AC08-3DCCB1512BA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConApp-Client", "ConApp-Client\ConApp-Client.csproj", "{9B2B9FFA-13BB-4A1F-AF7B-9B12288A5209}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConApp-Client", "ConApp-Client\ConApp-Client.csproj", "{9B2B9FFA-13BB-4A1F-AF7B-9B12288A5209}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part-2", "Part-2", "{AEA3A153-D266-4D1F-A28F-A99AB6FC5454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_Client", "SignalR_Client\SignalR_Client.csproj", "{7B4CBD94-6C36-42F0-9705-FCF7B9568FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_Client", "SignalR_Client\SignalR_Client.csproj", "{7B4CBD94-6C36-42F0-9705-FCF7B9568FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_Common", "SignalR_Common\SignalR_Common.csproj", "{01E60AC2-4AF2-43EC-89E9-CF67257A1CEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_Common", "SignalR_Common\SignalR_Common.csproj", "{01E60AC2-4AF2-43EC-89E9-CF67257A1CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_Server_Api", "SignslR_Server_Api\SignalR_Server_Api.csproj", "{307C063F-41CF-42F8-B4AF-D7F960DED57D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_Server_Api", "SignslR_Server_Api\SignalR_Server_Api.csproj", "{307C063F-41CF-42F8-B4AF-D7F960DED57D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part_3_Client_Net_JS", "Part_3_Client_Net_JS", "{640B0EF4-A7F0-4A62-B2BD-CBCA4B6BE4E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{03FFC504-4F9D-404C-AE4C-CB7FBA6011E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient_Js", "WebClient_Js\WebClient_Js.csproj", "{4C339114-8301-4B64-9129-BEDF76B01290}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClient", "DesktopClient\DesktopClient.csproj", "{A0A74B96-A804-4381-8049-695FFE7ADB52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +49,18 @@ Global
 		{307C063F-41CF-42F8-B4AF-D7F960DED57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{307C063F-41CF-42F8-B4AF-D7F960DED57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{307C063F-41CF-42F8-B4AF-D7F960DED57D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03FFC504-4F9D-404C-AE4C-CB7FBA6011E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FFC504-4F9D-404C-AE4C-CB7FBA6011E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FFC504-4F9D-404C-AE4C-CB7FBA6011E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FFC504-4F9D-404C-AE4C-CB7FBA6011E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C339114-8301-4B64-9129-BEDF76B01290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C339114-8301-4B64-9129-BEDF76B01290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C339114-8301-4B64-9129-BEDF76B01290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C339114-8301-4B64-9129-BEDF76B01290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0A74B96-A804-4381-8049-695FFE7ADB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A74B96-A804-4381-8049-695FFE7ADB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A74B96-A804-4381-8049-695FFE7ADB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A74B96-A804-4381-8049-695FFE7ADB52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +69,9 @@ Global
 		{7B4CBD94-6C36-42F0-9705-FCF7B9568FE8} = {AEA3A153-D266-4D1F-A28F-A99AB6FC5454}
 		{01E60AC2-4AF2-43EC-89E9-CF67257A1CEA} = {AEA3A153-D266-4D1F-A28F-A99AB6FC5454}
 		{307C063F-41CF-42F8-B4AF-D7F960DED57D} = {AEA3A153-D266-4D1F-A28F-A99AB6FC5454}
+		{03FFC504-4F9D-404C-AE4C-CB7FBA6011E9} = {640B0EF4-A7F0-4A62-B2BD-CBCA4B6BE4E7}
+		{4C339114-8301-4B64-9129-BEDF76B01290} = {640B0EF4-A7F0-4A62-B2BD-CBCA4B6BE4E7}
+		{A0A74B96-A804-4381-8049-695FFE7ADB52} = {640B0EF4-A7F0-4A62-B2BD-CBCA4B6BE4E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93AD336A-3B86-4D3D-978B-B6569E9D6D09}
