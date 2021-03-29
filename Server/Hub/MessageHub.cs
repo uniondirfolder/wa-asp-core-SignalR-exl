@@ -8,7 +8,7 @@ namespace Server.Hub
 {
     public class MessageHub:Hub<IMessageClient>
     {
-        public Task SendToOther(Message message) 
+        public Task SendToOthers(Message message) 
         {
             var msgForClient = NewMessage.Create(Context.Items["Name"] as string, message);
             return Clients.Others.Send(msgForClient);
