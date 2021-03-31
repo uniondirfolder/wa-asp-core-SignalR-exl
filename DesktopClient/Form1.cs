@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
@@ -228,6 +229,32 @@ namespace DesktopClient
             {
                 MessageBox.Show(response.StatusCode.ToString());
                 return string.Empty;
+            }
+        }
+
+        private async void btn_StreamFromServer_Click(object sender, EventArgs e)
+        {
+            var stream = hubConnection.StreamAsync<int>("DownloadStream");
+            await foreach (var element in stream)
+            {
+                Debug.WriteLine(element);
+            }
+
+            Debug.WriteLine("Stream from server completed");
+        }
+
+        private async void btn_StreamToServer_Click(object sender, EventArgs e)
+        {
+            var test = TestAsyncEnumerable();
+            await hubConnection.SendAsync("UploadStream", test);
+        }
+
+        async IAsyncEnumerable<int> TestAsyncEnumerable() 
+        {
+            for (int i = 9; i >= 0; i--)
+            {
+                yield return i;
+                await Task.Delay(1000);
             }
         }
     }

@@ -29,6 +29,8 @@ namespace DesktopClient
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button btn_StreamFromServer;
+            System.Windows.Forms.Button btn_StreamToServer;
             this.getNameButton = new System.Windows.Forms.Button();
             this.setNameButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -45,6 +47,8 @@ namespace DesktopClient
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            btn_StreamFromServer = new System.Windows.Forms.Button();
+            btn_StreamToServer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // getNameButton
@@ -194,6 +198,26 @@ namespace DesktopClient
             this.textBox1.Size = new System.Drawing.Size(151, 23);
             this.textBox1.TabIndex = 20;
             // 
+            // btn_StreamFromServer
+            // 
+            btn_StreamFromServer.Location = new System.Drawing.Point(12, 397);
+            btn_StreamFromServer.Name = "btn_StreamFromServer";
+            btn_StreamFromServer.Size = new System.Drawing.Size(153, 23);
+            btn_StreamFromServer.TabIndex = 7;
+            btn_StreamFromServer.Text = "Stream from server";
+            btn_StreamFromServer.UseVisualStyleBackColor = true;
+            btn_StreamFromServer.Click += new System.EventHandler(this.btn_StreamFromServer_Click);
+            // 
+            // btn_StreamToServer
+            // 
+            btn_StreamToServer.Location = new System.Drawing.Point(12, 368);
+            btn_StreamToServer.Name = "btn_StreamToServer";
+            btn_StreamToServer.Size = new System.Drawing.Size(153, 23);
+            btn_StreamToServer.TabIndex = 7;
+            btn_StreamToServer.Text = "Stream to server";
+            btn_StreamToServer.UseVisualStyleBackColor = true;
+            btn_StreamToServer.Click += new System.EventHandler(this.btn_StreamToServer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -209,6 +233,8 @@ namespace DesktopClient
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.chatTextBox);
+            this.Controls.Add(btn_StreamToServer);
+            this.Controls.Add(btn_StreamFromServer);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.messageTextLabel);

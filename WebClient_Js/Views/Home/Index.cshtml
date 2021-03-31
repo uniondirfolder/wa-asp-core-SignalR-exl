@@ -16,6 +16,10 @@
                 <button type="button" onclick="getMyName()">Get</button>
                 <button type="button" onclick="setMyName()">Set</button>
             </div>
+            <div class="btn-wrapper">
+                <button type="button" onclick="fromServerStream()">From server</button>
+                <button type="button" onclick="toServerStream()">To server</button>
+            </div>
         </div>
         <div class="wrapper message-wrapper">
             <label for="wrapper message">Text</label>
@@ -193,6 +197,25 @@
                     console.log(error);
                 }
             }
+        }
+        function fromServerStream(){
+            let stream = connection.stream("DownloadStream").subscribe({
+                next: (item)=>{console.log(item);},
+                complete: ()=>{console.log('Stream from server completed');},
+                error: (err)=>{console.log('Stream error');}
+            });
+        }
+        async function toServerStream(){
+            const subject = new signalR.subject();
+            connection.send("UploadStream", subject);
+            for (let i=0;i<10;i++){
+                subject.next(i);
+                await sleep(1000);
+            }
+            subject.complete();
+        }
+        function sleep(ms){
+            return new Promise(resolve=>setTimeout(resolve,ms));
         }
     </script>
 }

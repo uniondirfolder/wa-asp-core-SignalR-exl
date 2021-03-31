@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Server.Hub
@@ -33,6 +36,29 @@ namespace Server.Hub
             if (Context.Items.ContainsKey("Name")) return Task.FromResult(Context.Items["Name"] as string);
 
             return Task.FromResult("Anonymous");
+        }
+
+        public async IAsyncEnumerator<int> DownloadStream([EnumeratorCancellation] CancellationToken cancellation) 
+        {
+            int iteration = 0;
+            while (iteration<10 && !cancellation.IsCancellationRequested)
+            {
+                yield return iteration;
+
+                iteration += 1;
+
+                await Task.Delay(1000, cancellation);
+            }
+        }
+
+        public async Task UploadStream(IAsyncEnumerable<int> asyncEnumerable)
+        {
+            await foreach (var element in asyncEnumerable)
+            {
+                Debug.WriteLine(element);
+            }
+
+            Debug.WriteLine("Stream from client completed");
         }
     }
 }
