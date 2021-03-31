@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server_4", "Server_4\Server
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGenerator", "KeyGenerator\KeyGenerator.csproj", "{26DE479F-6D29-4684-AC5F-29BC0D32764E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagePackVsJson", "MessagePackVsJson\MessagePackVsJson.csproj", "{932ACDA8-B9D1-49BA-AC44-2EC347F544AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932ACDA8-B9D1-49BA-AC44-2EC347F544AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932ACDA8-B9D1-49BA-AC44-2EC347F544AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932ACDA8-B9D1-49BA-AC44-2EC347F544AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932ACDA8-B9D1-49BA-AC44-2EC347F544AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

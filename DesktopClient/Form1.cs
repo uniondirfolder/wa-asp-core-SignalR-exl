@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Mime;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -25,6 +27,7 @@ namespace DesktopClient
             hubConnection = new HubConnectionBuilder()
                 .WithUrl(url)
                 .WithAutomaticReconnect()
+                .AddMessagePackProtocol()
                 .Build();
 
             hubConnection.On<NewMessage>("Send", message =>

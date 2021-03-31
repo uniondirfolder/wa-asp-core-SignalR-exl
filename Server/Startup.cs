@@ -29,11 +29,11 @@ namespace Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<FakeUsers>(configuration.GetSection("FakeUsers");
+            services.Configure<FakeUsers>(configuration.GetSection("FakeUsers"));
             services.AddControllers();
 
-            services.AddSignalR();
-
+            //services.AddSignalR();
+            services.AddSignalR().AddMessagePackProtocol();
             //services.AddCors();
 
             services.AddCors(options => 

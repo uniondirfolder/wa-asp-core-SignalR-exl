@@ -106,14 +106,17 @@
 @section Scripts
 {
     <script type="text/javascript" src="~/js/signalr.min.js"></script>
+    <script type="text/javascript" src="~/js/msgpack5.min.js"></script>
+    <script type="text/javascript" src="~/js/signalr-protocol-msgpack.min.js"></script>
     <script type="text/javascript">
         const connection = new signalR.HubConnectionBuilder()
             .withUrl("http://localhost:57701/message")
             .withAutomaticReconnect()
+            .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
             .build();
 
         connection.on('Send', (message) => {
-            appendMessage(message.sender, message.text, 'black');
+            appendMessage(message.Sender, message.Text, 'black');
         });
 
         connection.onclose(error => {
@@ -156,7 +159,7 @@
         async function sendMessage() {
             if (connection.state === 'Connected') {
                 let textArea = document.querySelector('#message');
-                let message = { text: textArea.value };
+                let message = { Text: textArea.value };
                 try {
                     await connection.send('SendToOthers', message);
                     appendMessage('Me', message.text, 'green');
