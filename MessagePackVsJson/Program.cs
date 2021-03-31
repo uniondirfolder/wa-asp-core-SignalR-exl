@@ -7,6 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MessagePackVsJson
 {
@@ -134,6 +135,40 @@ namespace MessagePackVsJson
         [MessagePackObject]
         public class Test
         {
+            [Key("n")]
+            [JsonPropertyName("n")]
+            public string Name { get; set; }
+            [Key("k")]
+            [JsonPropertyName("k")]
+            public int Count { get; set; }
+            [Key("o")]
+            [JsonPropertyName("o")]
+            public double Open { get; set; }
+            [Key("h")]
+            [JsonPropertyName("h")]
+            public double High { get; set; }
+            [Key("l")]
+            [JsonPropertyName("l")]
+            public double Low { get; set; }
+            [Key("c")]
+            [JsonPropertyName("c")]
+            public double Close { get; set; }
+
+            public static IEnumerable<Test> GetTestData()
+            {
+                Random r = new Random();
+
+                return Enumerable.Range(0, 100_000)
+                    .Select(x => new Test
+                    {
+                        Name = Guid.NewGuid().ToString(),
+                        Count = r.Next(),
+                        Close = r.NextDouble(),
+                        High = r.NextDouble(),
+                        Low = r.NextDouble(),
+                        Open = r.NextDouble()
+                    });
+            }
         }
     }
 }
