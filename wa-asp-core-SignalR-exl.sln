@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopClient", "DesktopCli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part_4_Users_Groups", "Part_4_Users_Groups", "{F592342E-59D3-445E-9D03-2EFB39AB922F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WF_Client_4", "WF_Client_4\WF_Client_4.csproj", "{E80EA611-2BFB-4D9A-B4EF-E6BFF860D2FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WF_Client_4", "WF_Client_4\WF_Client_4.csproj", "{E80EA611-2BFB-4D9A-B4EF-E6BFF860D2FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server_4", "Server_4\Server_4.csproj", "{DAB29DA2-01C5-49BD-A7B2-2AF99FC628FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server_4", "Server_4\Server_4.csproj", "{DAB29DA2-01C5-49BD-A7B2-2AF99FC628FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGenerator", "KeyGenerator\KeyGenerator.csproj", "{26DE479F-6D29-4684-AC5F-29BC0D32764E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{DAB29DA2-01C5-49BD-A7B2-2AF99FC628FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAB29DA2-01C5-49BD-A7B2-2AF99FC628FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAB29DA2-01C5-49BD-A7B2-2AF99FC628FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26DE479F-6D29-4684-AC5F-29BC0D32764E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
