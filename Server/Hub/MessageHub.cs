@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +14,13 @@ namespace Server.Hub
     [Authorize]
     public class MessageHub:Hub<IMessageClient>
     {
+        private readonly ILogger<MessageHub> logger;
+
+        public MessageHub(ILogger<MessageHub> logger)
+        {
+            this.logger = logger;
+        }
+
         [Authorize(Policy="MyPolicy")]
         public Task SendToOthers(Message message) 
         {
@@ -27,6 +35,8 @@ namespace Server.Hub
 
             if (Context.Items.ContainsKey("Name")) Context.Items["Name"] = name;
             else Context.Items.Add("Name", name);
+
+            logger.LogInformation("Client with ConnectionId {ConnectionId} changed name to {Name}", Context.ConnectionId, name);
 
             return Task.CompletedTask;
         }

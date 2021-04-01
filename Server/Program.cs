@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,10 +17,24 @@ namespace Server
     {
         public static void Main(string[] args)
         {
-            var configuration = GetConfiguration();
-            //CreateHostBuilder(args).Build().Run();
-            var host = BuildWebHost(configuration, args);
-            host.Run();
+            Log.Logger = GetSerilogLogger();
+            try
+            {
+                Log.Information("Starting web host");
+                var configuration = GetConfiguration();
+                //CreateHostBuilder(args).Build().Run();
+                var host = BuildWebHost(configuration, args);
+                host.Run();
+            }
+            catch (Exception ex) 
+            {
+                Log.Fatal(ex, "Host terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+            
         }
 
         //public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -43,7 +58,8 @@ namespace Server
                 })
                 .UseStartup<Startup>()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseConfiguration(configuration);
+                .UseConfiguration(configuration)
+                .UseSerilog();
 
             return builder.Build();
         }
@@ -54,6 +70,28 @@ namespace Server
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
             return builder.Build();
+        }
+
+        private static Serilog.ILogger GetSerilogLogger() 
+        {
+            var configuration = new LoggerConfiguration()
+                .WriteTo.File(
+                    path: "Logs\\log-txt",
+                    retainedFileCountLimit: 31,
+                    shared: true,
+                    rollingInterval: RollingInterval.Day,
+                    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz [{Level}] {Message} [{Properties}]{NewLine}{Exception}}")
+                .WriteTo.Elasticsearch(new Serilog.Sinks.Elasticsearch.ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
+                {
+                    IndexFormat = "test-server-index-{0:yyyy.MM}",
+                    BufferBaseFilename = "Logs\\ElasticBuffer",
+                    BufferLogShippingInterval = TimeSpan.FromSeconds(5),
+                    BufferRetainedInvalidPayloadsLimitBytes = 5000,
+                    BufferFileCountLimit = 31,
+                    MinimumLogEventLevel = Serilog.Events.LogEventLevel.Debug
+                });
+                    
+            return configuration.CreateLogger();
         }
     }
 }

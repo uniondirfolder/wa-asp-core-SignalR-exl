@@ -117,6 +117,7 @@
             .withUrl("http://localhost:57701/message")
             .withAutomaticReconnect()
             .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+            .configureLogging(signalR.LogLavel.Debug)
             .build();
 
         connection.on('Send', (message) => {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,12 @@ namespace DesktopClient
                 .WithUrl(url)
                 .WithAutomaticReconnect()
                 .AddMessagePackProtocol()
+                .ConfigureLogging(options =>
+                {
+                    options.AddFilter("Microsoft.AspNetCore.SignalR", LogLevel.Debug);
+                    options.AddFilter("Microsoft.AspNetCore.Http.Connection", LogLevel.Debug);
+                    options.AddDebug();
+                })
                 .Build();
             InitConnection();
 
