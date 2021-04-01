@@ -38,7 +38,9 @@ namespace Server.Hub
             return Task.FromResult("Anonymous");
         }
 
-        public async IAsyncEnumerator<int> DownloadStream([EnumeratorCancellation] CancellationToken cancellation) 
+#pragma warning disable CS8424 // The EnumeratorCancellationAttribute will have no effect. The attribute is only effective on a parameter of type CancellationToken in an async-iterator method returning IAsyncEnumerable
+        public async IAsyncEnumerator<int> DownloadStream([EnumeratorCancellation] CancellationToken cancellation)
+#pragma warning restore CS8424 // The EnumeratorCancellationAttribute will have no effect. The attribute is only effective on a parameter of type CancellationToken in an async-iterator method returning IAsyncEnumerable
         {
             int iteration = 0;
             while (iteration<10 && !cancellation.IsCancellationRequested)

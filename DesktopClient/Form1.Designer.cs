@@ -47,9 +47,31 @@ namespace DesktopClient
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.serverPort = new System.Windows.Forms.TextBox();
             btn_StreamFromServer = new System.Windows.Forms.Button();
             btn_StreamToServer = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btn_StreamFromServer
+            // 
+            btn_StreamFromServer.Location = new System.Drawing.Point(12, 397);
+            btn_StreamFromServer.Name = "btn_StreamFromServer";
+            btn_StreamFromServer.Size = new System.Drawing.Size(153, 23);
+            btn_StreamFromServer.TabIndex = 7;
+            btn_StreamFromServer.Text = "Stream from server";
+            btn_StreamFromServer.UseVisualStyleBackColor = true;
+            btn_StreamFromServer.Click += new System.EventHandler(this.btn_StreamFromServer_Click);
+            // 
+            // btn_StreamToServer
+            // 
+            btn_StreamToServer.Location = new System.Drawing.Point(12, 368);
+            btn_StreamToServer.Name = "btn_StreamToServer";
+            btn_StreamToServer.Size = new System.Drawing.Size(153, 23);
+            btn_StreamToServer.TabIndex = 7;
+            btn_StreamToServer.Text = "Stream to server";
+            btn_StreamToServer.UseVisualStyleBackColor = true;
+            btn_StreamToServer.Click += new System.EventHandler(this.btn_StreamToServer_Click);
             // 
             // getNameButton
             // 
@@ -96,7 +118,7 @@ namespace DesktopClient
             this.chatTextBox.Location = new System.Drawing.Point(228, 17);
             this.chatTextBox.Name = "chatTextBox";
             this.chatTextBox.ReadOnly = true;
-            this.chatTextBox.Size = new System.Drawing.Size(565, 416);
+            this.chatTextBox.Size = new System.Drawing.Size(565, 475);
             this.chatTextBox.TabIndex = 15;
             this.chatTextBox.Text = "";
             // 
@@ -198,31 +220,30 @@ namespace DesktopClient
             this.textBox1.Size = new System.Drawing.Size(151, 23);
             this.textBox1.TabIndex = 20;
             // 
-            // btn_StreamFromServer
+            // label3
             // 
-            btn_StreamFromServer.Location = new System.Drawing.Point(12, 397);
-            btn_StreamFromServer.Name = "btn_StreamFromServer";
-            btn_StreamFromServer.Size = new System.Drawing.Size(153, 23);
-            btn_StreamFromServer.TabIndex = 7;
-            btn_StreamFromServer.Text = "Stream from server";
-            btn_StreamFromServer.UseVisualStyleBackColor = true;
-            btn_StreamFromServer.Click += new System.EventHandler(this.btn_StreamFromServer_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 449);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 15);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Server port";
             // 
-            // btn_StreamToServer
+            // serverPort
             // 
-            btn_StreamToServer.Location = new System.Drawing.Point(12, 368);
-            btn_StreamToServer.Name = "btn_StreamToServer";
-            btn_StreamToServer.Size = new System.Drawing.Size(153, 23);
-            btn_StreamToServer.TabIndex = 7;
-            btn_StreamToServer.Text = "Stream to server";
-            btn_StreamToServer.UseVisualStyleBackColor = true;
-            btn_StreamToServer.Click += new System.EventHandler(this.btn_StreamToServer_Click);
+            this.serverPort.Location = new System.Drawing.Point(78, 446);
+            this.serverPort.Name = "serverPort";
+            this.serverPort.Size = new System.Drawing.Size(100, 23);
+            this.serverPort.TabIndex = 23;
+            this.serverPort.Text = "10000";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.serverPort);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.button1);
@@ -266,6 +287,8 @@ namespace DesktopClient
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox serverPort;
     }
 }
 

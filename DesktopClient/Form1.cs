@@ -30,6 +30,7 @@ namespace DesktopClient
                 .WithAutomaticReconnect()
                 .AddMessagePackProtocol()
                 .Build();
+            InitConnection();
 
             hubConnection.On<NewMessage>("Send", message =>
             {
@@ -70,6 +71,7 @@ namespace DesktopClient
             {
                 try
                 {
+                    InitConnection();
                     await hubConnection.StartAsync();
                 }
                 catch (Exception ex)
@@ -155,14 +157,22 @@ namespace DesktopClient
 
         private string token = string.Empty;
         
-        private void InitConnection()
+        private async void InitConnection()
         {
-
-            hubConnection = new HubConnectionBuilder()
-                .WithUrl($"http://localhost:57701/messages?token={token}")
-                .WithAutomaticReconnect()
-                .Build();
-
+            if (hubConnection.State == HubConnectionState.Connected) 
+            {
+                await hubConnection.StopAsync();
+                connectButton.Text = "Connect";
+                stateLabelValue.ForeColor = Color.Red;
+                stateLabelValue.Text = "Disconnected";
+            }
+            //hubConnection = new HubConnectionBuilder()
+            //    .WithUrl($"http://localhost:57701/messages?token={token}")
+            //    .WithAutomaticReconnect()
+            //    .Build();
+            var parseResult = Int32.TryParse(serverPort.Text, out var port);
+            if (!parseResult) port = 10000;
+            hubConnection = new HubConnectionBuilder().WithUrl($"http://127.0.0.1:{port}/messages?token={token}").WithAutomaticReconnect().Build();
             hubConnection.On<NewMessage>("Send", message =>
             {
                 AppendTextToTextBox(message.Sender, message.Text, Color.Black);

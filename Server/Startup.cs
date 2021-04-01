@@ -33,7 +33,8 @@ namespace Server
             services.AddControllers();
 
             //services.AddSignalR();
-            services.AddSignalR().AddMessagePackProtocol();
+            var redisConnectionString = configuration.GetValue("Redis", "localhost:6379");
+            services.AddSignalR().AddMessagePackProtocol().AddStackExchangeRedis(redisConnectionString,options=> { options.Configuration.ChannelPrefix = "test"; });
             //services.AddCors();
 
             services.AddCors(options => 
